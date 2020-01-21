@@ -1,8 +1,21 @@
-###
-GET "http://127.0.0.1:8080" HTTP/1.1
+### Root 
+GET http://localhost:8080/ HTTP/1.1
 
-###
-GET "http://localhost:8080/classroom/1A" HTTP/1.1
+### Get Classroom
+GET http://localhost:8080/classroom/1A HTTP/1.1
 
-###
-GET http://www.google.com HTTP/1.1
+### Save Classroom
+POST http://localhost:8080/classroom/save HTTP/1.1
+Content-Type: application/json
+
+{
+    "roomName": "2A"
+}
+
+### Save and redirect
+POST http://localhost:8080/classroom/saveandredirect HTTP/1.1
+Content-Type: application/json
+
+{
+    "roomName": "2B"
+}

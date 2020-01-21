@@ -1,6 +1,5 @@
 package com.school.controller;
 
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 import com.school.dto.ClassroomDTO;
 import com.school.model.Classroom;
@@ -8,9 +7,11 @@ import com.school.service.ClassroomService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 /**
  * ClassroomController
  */
-@RestController
+@Controller
 @RequestMapping("/classroom")
 public class ClassroomController {
 
@@ -30,6 +31,7 @@ public class ClassroomController {
     ModelMapper modelMapper;
 
     @GetMapping("/{roomName}")
+    @ResponseBody
     public ClassroomDTO getClassroomByRoomName(@PathVariable("roomName") String roomName) {
         Classroom classroom = classroomService.findByRoomName(roomName)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
@@ -39,6 +41,7 @@ public class ClassroomController {
     }
 
     @PostMapping("/save")
+    @ResponseBody
     public ClassroomDTO saveClassroom(@RequestBody ClassroomDTO classroomData) {
         return modelMapper.map(
                 classroomService.save(modelMapper.map(classroomData, Classroom.class)),
