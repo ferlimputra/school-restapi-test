@@ -52,4 +52,12 @@ public class Student {
         this.score = Score;
     }
 
+    public Classroom getClassroom() {
+        return classroom;
+    }
+
+    public void setClassroom(Classroom classroom) {
+        this.classroom = classroom;
+    }
+
 }
