@@ -35,7 +35,7 @@ public class StudentService {
         return studentRepository.save(student);
     }
 
-    public List<Student> findByClassroom(String className) {
-        return studentRepository.findByClassroom(className);
+    public List<Student> findByClassroomName(String className) {
+        return studentRepository.findByClassroomName(className);
     }
 }

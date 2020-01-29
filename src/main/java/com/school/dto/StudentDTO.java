@@ -10,7 +10,7 @@ public class StudentDTO {
     private UUID id;
     private String name;
     private int score;
-    private UUID classroom;
+    private UUID classroomId;
     private String classroomName;
 
     public UUID getId() {
@@ -37,12 +37,12 @@ public class StudentDTO {
         this.score = score;
     }
 
-    public UUID getClassroom() {
-        return classroom;
+    public UUID getClassroomId() {
+        return classroomId;
     }
 
-    public void setClassroom(UUID classroom) {
-        this.classroom = classroom;
+    public void setClassroomId(UUID classroomId) {
+        this.classroomId = classroomId;
     }
 
     public String getClassroomName() {

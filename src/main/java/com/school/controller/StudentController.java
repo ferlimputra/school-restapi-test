@@ -40,7 +40,7 @@ public class StudentController {
     @ResponseBody
     public List<StudentDTO> getStudentsByClassName(@PathVariable("className") String className) {
         return Arrays.asList(
-                modelMapper.map(studentService.findByClassroom(className), StudentDTO[].class));
+                modelMapper.map(studentService.findByClassroomName(className), StudentDTO[].class));
     }
 
     @PostMapping(value = "/save")
