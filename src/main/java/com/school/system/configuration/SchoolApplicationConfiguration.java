@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 public class SchoolApplicationConfiguration {
 
     @Bean
-    public static ModelMapper modelMapper() {
+    public ModelMapper modelMapper() {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setPropertyCondition(Conditions.isNotNull());
         return modelMapper;

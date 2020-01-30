@@ -1,11 +1,19 @@
+### Variables
+@port = 8080
+@baseUrl = http://localhost:{{port}}
+
 ### Root 
-GET http://localhost:8080/ HTTP/1.1
+GET {{baseUrl}} HTTP/1.1
+
+### Root - Localized
+GET {{baseUrl}} HTTP/1.1
+Accept-Language: in-ID
 
 ### Get Classroom
-GET http://localhost:8080/classroom/1A HTTP/1.1
+GET {{baseUrl}}/classroom/1A HTTP/1.1
 
 ### Save Classroom
-POST http://localhost:8080/classroom/save HTTP/1.1
+POST {{baseUrl}}/classroom/save HTTP/1.1
 Content-Type: application/json
 
 {
@@ -13,7 +21,7 @@ Content-Type: application/json
 }
 
 ### Save and redirect Classroom
-POST http://localhost:8080/classroom/saveandredirect HTTP/1.1
+POST {{baseUrl}}/classroom/saveandredirect HTTP/1.1
 Content-Type: application/json
 
 {
@@ -21,13 +29,13 @@ Content-Type: application/json
 }
 
 ### Get Student
-GET http://localhost:8080/student/John HTTP/1.1
+GET {{baseUrl}}/student/John HTTP/1.1
 
 ### Get Students by Class
-GET http://localhost:8080/student/class/1A HTTP/1.1
+GET {{baseUrl}}/student/class/1A HTTP/1.1
 
 ### Save Student
-POST http://localhost:8080/student/save HTTP/1.1
+POST {{baseUrl}}/student/save HTTP/1.1
 Content-Type: application/json
 
 {
@@ -36,7 +44,7 @@ Content-Type: application/json
     "classroomName": "1A"
 }
 ###
-POST http://localhost:8080/student/save HTTP/1.1
+POST {{baseUrl}}/student/save HTTP/1.1
 Content-Type: application/json
 
 {
@@ -45,7 +53,7 @@ Content-Type: application/json
     "classroomName": "1A"
 }
 ###
-POST http://localhost:8080/student/save HTTP/1.1
+POST {{baseUrl}}/student/save HTTP/1.1
 Content-Type: application/json
 
 {
